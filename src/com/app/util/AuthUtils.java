@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.codec.binary.Base64;
 
 import com.app.model.admin.User;
-
+/**
+ * 鉴权工具类
+ * @author hewep
+ */
 public class AuthUtils {
 	/**
 	 * 生成cookie令牌
@@ -39,6 +42,12 @@ public class AuthUtils {
 		return authToken;
 	}
 	
+	/**
+	 * 
+	 * @param authToken
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
 	public static String[] getToken(String authToken) throws UnsupportedEncodingException{
 		byte[] tokenByte = Base64.decodeBase64(authToken);
 		String token = new String(tokenByte,"UTF-8");
